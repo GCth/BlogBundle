@@ -39,8 +39,8 @@ class TagsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->prependClientTransformer(
-            new EntitiesToStringTransformer($this->registry->getEntityManager())
+        $builder->addViewTransformer(
+            new EntitiesToStringTransformer($this->registry->getEntityManager()), true
         );
     }
 
